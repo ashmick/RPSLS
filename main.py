@@ -1,14 +1,10 @@
-from player import Player
+from game import Game
 # must disply rules
 # enter name
 # enter amount of players
 # choose to play ai or human
-
-first_person=Player("Ashley")
-
-first_person.game_greeting()
-
-first_person.game_start()
+my_game=Game()
+my_game.run_game()
 
 
 # human playing human

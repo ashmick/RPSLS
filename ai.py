@@ -11,7 +11,7 @@ class Ai(Player):
         # self.Gesture_chosen=""
         pass
     
-    def choose_a_guesture(self):
-        self.choose_your_guesture= random.choice(self.gesture)
-        print(f'{self.name} has picked {self.Gesture_chosen}')
+    def choose_a_gesture(self):
+        self.gesture_chosen= random.choice(self.gestures)
+        print(f'{self.name} has picked {self.gesture_chosen}')
     pass
