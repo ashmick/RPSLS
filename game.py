@@ -15,7 +15,7 @@ class Game:
         self.game_greeting()
         self.game_rules()
         self.choose_an_opponent()
-        self.player_one.choose_a_gesture()
+        self.play_out_gestures()
         
         pass
 
@@ -30,8 +30,8 @@ class Game:
         
             
     def choose_an_opponent(self):   
-        opponent_options= ["1","2"]
-        player_choose_opponent=input("Press 1 for multiplayer or 2 to play against the computer?")   
+        opponent_options= ["1","2","3"]
+        player_choose_opponent=input("How many players? Press 1, 2, or 3 for a surprise. ")   
         if player_choose_opponent in opponent_options:
             print("Great choice! Let's get started")
           
@@ -40,7 +40,12 @@ class Game:
             print("You will be playing against the computer! Good luck")
             
             # initialize ai
-            self.player_one=Ai("Ashley")
+
+            self.player_one=Human("Ashley")
+            
+            self.player_two=Ai("Computer")
+
+            
             # self.player_one.choose_a_gesture()
             
             
@@ -49,11 +54,43 @@ class Game:
             
             # initialize human
             self.player_one=Human("Missy")
+            self.player_two=Human("Cheryl")
             # self.player_one.choose_a_gesture() 
-
+        
+        elif player_choose_opponent=="3":
+            print("Get ready for the battle of the robots")
+            
+            self.player_one=Ai("Computer 1")
+            self.player_two=Ai("Computer 2")
+            pass
     
-    
-
-
-        pass
-    
+    def play_out_gestures (self):
+        self.wins=3
+        while self.wins>0:
+            self.player_one.choose_a_gesture()
+            self.player_two.choose_a_gesture()
+            # self.determine_winner(player_one_choice, player_two_choice)
+            self.player_wins-=1
+            
+        
+    # def determine_winner(self,player_one_choice, player_two_choice):
+    #     if human_choice == 0 and ai_choice == "Scissors" or ai_choice == "Lizard":
+    #         print("Player wins.")
+    #         player_wins = player_wins.append(1) 
+    #     elif human_choice == 1 and ai_choice == "Rock" or ai_choice == "Spock":
+    #         print("Player wins.")
+    #         playerWins = playerWins.append(1) 
+    #     elif human_choice == 2 and ai_choice == "Paper" or ai_choice == "Lizard":
+    #         print("Player wins.")
+    #         playerWins = playerWins.append(1) 
+    #     elif human_choice == 3 and ai_choice == "Spock" or ai_choice == "Paper":
+    #         print("Player wins.")
+    #         playerWins = playerWins.append(1)
+    #     elif human_choice== 4 and ai_choice == "Scissor" or ai_choice == "Rock":
+    #         print("Player wins.")
+    #         playerWins = playerWins.append(1)
+    #     elif human_choice == ai_choice:
+    #         print("Tie")
+    #         ties = ties.append(1)
+    #     else:
+    #         pass
